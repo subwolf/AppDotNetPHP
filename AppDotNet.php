@@ -19,7 +19,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 class AppDotNet {
-
 	// 1.) Enter your Client ID
 	private $_clientId = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
 
@@ -34,7 +33,7 @@ class AppDotNet {
 		'stream','email','write_post','follow','messages','export'
 	);
 	
-	// Set to FALSE if you dont want sessions to be started right now
+	// 5.) Set to FALSE if you dont want sessions to be started right now
 	private $_session = TRUE;
 
 	private $_baseUrl = 'https://alpha-api.app.net/stream/0/';
