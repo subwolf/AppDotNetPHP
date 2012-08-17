@@ -18,7 +18,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-public class AppDotNet {
+class AppDotNet {
 
 	// 1.) Enter your Client ID
 	private $_clientId = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
@@ -33,6 +33,9 @@ public class AppDotNet {
 	private $_scope = array(
 		'stream','email','write_post','follow','messages','export'
 	);
+	
+	// Set to FALSE if you dont want sessions to be started right now
+	private $_session = TRUE;
 
 	private $_baseUrl = 'https://alpha-api.app.net/stream/0/';
 	private $_authUrl = 'https://alpha.app.net/oauth/';
@@ -53,9 +56,7 @@ public class AppDotNet {
 		      			'grant_type'=>'authorization_code',
 						'redirect_uri'=>$this->_redirectUri);
 		
-		// If sessions are enabled but one has not been created, start it.
-		// Might be bad to force start it where not necessary.
-		if (session_status() == PHP_SESSION_NONE) session_start();
+		if ($this->_session === TRUE) session_start();
 	}
 
 	// returns the authentication URL constructed above
